@@ -16,7 +16,7 @@
 
 [오늘 과제 설명]  
 - **Foundry 설치**: `foundryup` 스크립트를 사용해 Foundry를 설치하고 `forge --version`, `cast --version`으로 정상 설치 여부를 확인한다.  
-- **프로젝트 생성**: 프로젝트 루트(`problems-for-solidity`)에서 `foundryup` 설치 후 `forge init day1-foundry-playground`를 실행해 샘플 프로젝트를 생성한다.  
+- **프로젝트 생성**: 프로젝트 루트(`problems-for-solidity/day1`)에서 `foundryup` 설치 후 `forge init foundry-playground`를 실행해 샘플 프로젝트를 생성한다.  
   - `src/DayOne.sol`이라는 새 컨트랙트 파일을 만들고, 샘플로 제공된 `Counter.sol` 대신 오늘 과제 요구사항을 구현한다.  
   - `script/`, `test/` 디렉터리 구조를 검토하고, 필요 없는 템플릿 파일은 유지해도 무방하다.  
 - **컨트랙트 구현 요구사항**:  
@@ -47,7 +47,7 @@
   - `forge test -vvvv`로 테스트 로그를 확인하고, 테스트 출력 중 revert 사유가 잘 드러나도록 한다.  
   - `forge test --gas-report`를 실행해 가스 리포트를 출력하고, `RESULT.md`에 주요 수치를 요약한다.  
 - **제출 지침**:  
-  - 코드와 테스트는 모두 `day1-foundry-playground` 디렉터리에 커밋한다고 가정한다.  
+  - 코드와 테스트는 모두 `day1/foundry-playground` 디렉터리에 커밋한다고 가정한다.  
   - 오늘 과제를 마친 후 루트의 `day1/RESULT.md`에 요구된 정보를 정리해 제출한다.
 
 [이해를 돕기 위한 예시]  
