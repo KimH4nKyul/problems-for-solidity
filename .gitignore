@@ -1,4 +1,2 @@
 .idea/
-
-**/lib/
-**/lib/forge-std
+lib/
