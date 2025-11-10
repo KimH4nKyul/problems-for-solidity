@@ -127,17 +127,17 @@ contract DayThreeVault {
         WithdrawalRequest memory request = pendingWithdrawals[msg.sender];
         if (request.recipient == address(0)) revert NoPendingWithdrawal();
 
-        if (block.timestamp < request.readyAt) { revert WithdrawalNotReady(request.readyAt, uint64(block.timestamp)); }
+        if (block.timestamp < request.readyAt) revert WithdrawalNotReady(request.readyAt, uint64(block.timestamp));
 
         uint256 balance = balances[msg.sender];
-        if (balance < request.amount) { revert InsufficientBalance(request.amount, balance); }
+        if (balance < request.amount) revert InsufficientBalance(request.amount, balance);
 
         delete pendingWithdrawals[msg.sender];
         balances[msg.sender] = balance - request.amount;
         totalDeposits -= request.amount;
 
-        (bool success, ) = request.recipient.call{ value: request.amount }("");
-        if (!success) { revert TransferFailed(request.recipient, request.amount); }
+        (bool success,) = request.recipient.call{value: request.amount}("");
+        if (!success) revert TransferFailed(request.recipient, request.amount);
 
         emit WithdrawalExecuted(msg.sender, request.amount, request.recipient);
     }
@@ -150,3 +150,5 @@ contract DayThreeVault {
         return pendingWithdrawals[account];
     }
 }
+
+// TODO: test codes + read think_about and hints -> write blog posts
